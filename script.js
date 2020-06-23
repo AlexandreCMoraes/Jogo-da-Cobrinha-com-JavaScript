@@ -61,6 +61,14 @@ function iniciarJogo() {
     // 'bateu'na parede direita, volta para o lado contrario, a esquerda e continua andando ==>
     // para a direita
 
+    for (i = 1; i < snake.length; i++) {
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            // se a posição da cabeça for igual a do corpo, vai emitir um alerta
+            clearInterval(jogo);
+            alert('Game Over :(');
+        }
+    }
+
     criarBG();
     criarCobrinha();
     drawFood();
