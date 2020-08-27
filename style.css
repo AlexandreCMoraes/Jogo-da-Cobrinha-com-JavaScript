@@ -9,3 +9,21 @@ body{
     background-color: chocolate;
     font-family: fantasy;
 }
+
+.pontuacao-canvas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    width: 80%;
+    
+}
+
+.pontuacao {
+    width: 25%;
+
+}
+.canvas{
+    align-items:flex-start;
+    width: 75%;
+}

@@ -1,14 +1,19 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
+
 // tipo de dimensao do jogo: duas dimensoes
 let box = 32;
 // tamanho de pixel da tela do quadrado da cobrinha
 let snake = [];
 snake[0] = {
-    // inicio da cobrinha no canvas(centro do qaudrado cinza)
+    // inicio da cobrinha no canvas(centro do quadrado cinza)
     x: 8 * box,
     y: 8 * box
 }
+
+// let pontos = document.getElementById("pontos")
+// var pontuacao = 0
+// pontos.innerHTML = pontuacao
 
 let direction = "rigth";
 // direção inicial do jogo ao carregar a página: rigth
@@ -49,7 +54,16 @@ function update(event) {
     if (event.keyCode == 40 && direction != "up") direction = "down";
     // comando dos toques do teclado (que sao esses numeros referenciais) e transmitir para a cobrinha se mexer, chamado update
 }
-
+function pontuar(){
+    let pontosTela = document.getElementById("pontos")
+    let pontos = pontosTela.textContent;
+    let pontuou = Number(pontos)
+    
+    pontuou +=1;
+    pontosTela.innerHTML= pontuou
+    
+    
+}
 function iniciarJogo() {
     if (snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if (snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
@@ -86,6 +100,7 @@ function iniciarJogo() {
         snake.pop();
     }
     else {
+        pontuar();
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
     }
